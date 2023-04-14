@@ -26,15 +26,16 @@ class Handler_new implements URLHandler {
                     return String.format("Number increased by %s! It's now %d", parameters[1], num);
                 } else if(parameters[0].equals("s")){
                     friut_list.add(parameters[1]);
-                    return String.format("this is %s", parameters[1]);
+                    return String.format("this is %s", friut_list.get(0));
                 }
             }
             if (url.getPath().contains("/search")) {
+
                 String[] parameters = url.getQuery().split("=");
                 for(int i = 0;i < friut_list.size(); i ++){
                     String friut = friut_list.get(i);
-                    if(friut.contains(parameters[0])){
-                        re = re + " "+ friut;
+                    if(friut.contains(parameters[1])){
+                        re= re + " "+friut;
                     }
                 }
 
